@@ -1,5 +1,9 @@
-package com.keneth.products
+package com.keneth.products.data
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class ProductsItem(
     val category: String,
     val description: String,
@@ -8,4 +12,4 @@ data class ProductsItem(
     val price: Double,
     val rating: Rating,
     val title: String
-)
+): Parcelable
