@@ -1,5 +1,6 @@
-package com.keneth.products
+package com.keneth.products.Api
 
+import com.keneth.products.data.ProductsItem
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
