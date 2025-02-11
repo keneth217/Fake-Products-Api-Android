@@ -1,14 +1,16 @@
-package com.keneth.products
+package com.keneth.products.model
 
 import androidx.compose.runtime.State
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.keneth.products.Api.RetrofitInstance
+import com.keneth.products.data.ProductsItem
 import kotlinx.coroutines.launch
 
 class ProductsViewModel : ViewModel() {
     private val _productsState = mutableStateOf(ProductsState())
-    val productsState: State<ProductsState> get() = _productsState
+    val productsState: State<ProductsState>  = _productsState
 
     init {
         fetchProducts()
