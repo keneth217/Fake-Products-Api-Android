@@ -55,6 +55,7 @@ fun SplashScreen(navController: NavHostController) {
                     .size(200.dp)
                     .clip(CircleShape)
                     .shadow(16.dp, shape = CircleShape)
+
             )
 
             Text(
