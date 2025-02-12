@@ -69,8 +69,7 @@ fun ProductDetailsScreen(
             modifier = Modifier
                 .fillMaxSize()
                 .padding(innerPadding)
-                .padding(16.dp) // Added padding for better UI spacing
-                .verticalScroll(rememberScrollState()), // Enable scrolling for long descriptions
+                .padding(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
@@ -95,22 +94,48 @@ fun ProductDetailsScreen(
                 horizontalArrangement = Arrangement.Center
             ) {
                 Text(text = "Price: \$${product.price}", style = MaterialTheme.typography.bodyLarge)
-                VerticalDivider(
-                    color = MaterialTheme.colorScheme.primary,
-                    thickness = 1.dp,
-                    modifier = Modifier.padding(horizontal = 8.dp)
-                )
+//                VerticalDivider(
+//                    color = MaterialTheme.colorScheme.primary,
+//                    thickness = 1.dp,
+//                    modifier = Modifier.padding(horizontal = 8.dp)
+//                )
                 Text(
                     text = "⭐ ${product.rating.rate} (${product.rating.count})",
                     style = MaterialTheme.typography.bodyLarge
+
                 )
             }
 
             Text(
-                text = product.description,
+                text = product.description + "Hi Devs, in this article i am going to show you how you can design bottom navigation bar in jetpack compose using navigation component(nav controller and nav host).\n" +
+                        "\n" +
+                        "For this article I have designed bottom navigation bar just like LinkedIn. In jetpack compose you don’t need to define your navigation under navigation directory and create its navigation graph. Navigation in jetpack compose is different from xml navigation where we need to define the fragments and graph. Add below dependency in your app level gradle file and rebuild your app.\n" +
+                        "\n" +
+                        "implementation \"androidx.navigation:navigation-compose:2.4.0-beta02\"\n" +
+                        "Hi Devs, in this article i am going to show you how you can design bottom navigation bar in jetpack compose using navigation component(nav controller and nav host).\n" +
+                        "\n" +
+                        "For this article I have designed bottom navigation bar just like LinkedIn. In jetpack compose you don’t need to define your navigation under navigation directory and create its navigation graph. Navigation in jetpack compose is different from xml navigation where we need to define the fragments and graph. Add below dependency in your app level gradle file and rebuild your app.\n" +
+                        "\n" +
+                        "implementation \"androidx.navigation:navigation-compose:2.4.0-beta02\"\n" +
+                        "Hi Devs, in this article i am going to show you how you can design bottom navigation bar in jetpack compose using navigation component(nav controller and nav host).\n" +
+                        "\n" +
+                        "For this article I have designed bottom navigation bar just like LinkedIn. In jetpack compose you don’t need to define your navigation under navigation directory and create its navigation graph. Navigation in jetpack compose is different from xml navigation where we need to define the fragments and graph. Add below dependency in your app level gradle file and rebuild your app.\n" +
+                        "\n" +
+                        "implementation \"androidx.navigation:navigation-compose:2.4.0-beta02\"\n" +
+                        "Hi Devs, in this article i am going to show you how you can design bottom navigation bar in jetpack compose using navigation component(nav controller and nav host).\n" +
+                        "\n" +
+                        "For this article I have designed bottom navigation bar just like LinkedIn. In jetpack compose you don’t need to define your navigation under navigation directory and create its navigation graph. Navigation in jetpack compose is different from xml navigation where we need to define the fragments and graph. Add below dependency in your app level gradle file and rebuild your app.\n" +
+                        "\n" +
+                        "implementation \"androidx.navigation:navigation-compose:2.4.0-beta02\"\n" +
+                        "Hi Devs, in this article i am going to show you how you can design bottom navigation bar in jetpack compose using navigation component(nav controller and nav host).\n" +
+                        "\n" +
+                        "For this article I have designed bottom navigation bar just like LinkedIn. In jetpack compose you don’t need to define your navigation under navigation directory and create its navigation graph. Navigation in jetpack compose is different from xml navigation where we need to define the fragments and graph. Add below dependency in your app level gradle file and rebuild your app.\n" +
+                        "\n" +
+                        "implementation \"androidx.navigation:navigation-compose:2.4.0-beta02\"\n" +
+                        "After rebuilding your app create a separate directory for bottom navigation related files. Now create sealed class with name BottomNavItem with bottom navigation item title, item icon and item route which we will use later for navigation between screens just like below:",
                 textAlign = TextAlign.Justify,
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(top = 8.dp)
+                style = MaterialTheme.typography.bodyLarge,
+                modifier = Modifier.verticalScroll(rememberScrollState()).padding(top=20.dp)
             )
         }
     }
