@@ -42,6 +42,10 @@ android {
 
 dependencies {
 
+    implementation ("androidx.compose.material:material:1.5.0")
+    implementation("androidx.compose.material:material:1.7.7")
+    implementation ("androidx.graphics:graphics-shapes:1.0.1")
+
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.protolite.well.known.types)
     implementation(libs.androidx.compose.material3)
