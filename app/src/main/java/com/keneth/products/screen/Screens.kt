@@ -9,6 +9,8 @@ sealed class Screens(val route: String, val title: String? = null, open val icon
     object ProductsScreen : Screens("products_screen")
 
     object ProductDetailsScreen : Screens("product_details_screen")
+    object FruitsScreen : Screens("fruits_screen")
+    object JuiceDetailsScreen : Screens("juice_details_screen")
 
 
     sealed class DrawerScreen(val dTitle: String, val dRoute: String, @DrawableRes override val icon: Int) :
