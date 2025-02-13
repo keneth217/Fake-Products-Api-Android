@@ -1,4 +1,4 @@
-package com.keneth.products.data
+package com.keneth.products.data.Clothes
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize
