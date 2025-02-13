@@ -3,9 +3,9 @@ package com.keneth.products.screen
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material3.MaterialTheme
@@ -31,7 +31,7 @@ fun SplashScreen(navController: NavHostController) {
 
     LaunchedEffect(Unit) {
         delay(3000)
-        navController.navigate(Screens.ProductsScreen.route) {
+        navController.navigate(Screens.FruitsScreen.route) {
             popUpTo(Screens.SplashScreen.route) { inclusive = true }
         }
     }
@@ -43,27 +43,26 @@ fun SplashScreen(navController: NavHostController) {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Box(
-            contentAlignment = Alignment.Center,
-            modifier = Modifier.size(250.dp)
-        ) {
-            Image(
-                painter = painterResource(id = R.drawable.women),
-                contentDescription = "App Logo",
-                contentScale = ContentScale.Crop,
-                modifier = Modifier
-                    .size(200.dp)
-                    .clip(CircleShape)
-                    .shadow(16.dp, shape = CircleShape)
 
-            )
+        Image(
+            painter = painterResource(id = R.drawable.women),
+            contentDescription = "App Logo",
+            contentScale = ContentScale.Crop,
+            modifier = Modifier
+                .size(200.dp)
+                .clip(CircleShape)
+                .shadow(16.dp, shape = CircleShape)
 
-            Text(
-                text = "WELCOME TO ${stringResource(id = R.string.app_name)}",
-                style = MaterialTheme.typography.headlineLarge,
-                color = Color.White,
-                modifier = Modifier.align(Alignment.BottomCenter)
-            )
-        }
+        )
+
+        Text(
+            text = "WELCOME TO ${stringResource(id = R.string.app_name)}",
+            style = MaterialTheme.typography.headlineLarge,
+            color = Color.White,
+            modifier = Modifier
+                .padding(10.dp)
+                .align(alignment = Alignment.CenterHorizontally)
+        )
+
     }
 }
