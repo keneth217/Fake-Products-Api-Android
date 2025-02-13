@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.keneth.products.Api.RetrofitInstance
-import com.keneth.products.data.ProductsItem
+import com.keneth.products.data.Clothes.ProductsItem
 import kotlinx.coroutines.launch
 
 class ProductsViewModel : ViewModel() {
