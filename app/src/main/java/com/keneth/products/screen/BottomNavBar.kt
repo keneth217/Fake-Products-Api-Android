@@ -33,8 +33,8 @@ fun BottomNavBar(navController: NavController, currentRoute: String) {
         contentColor = MaterialTheme.colorScheme.primary,
         modifier = Modifier
             .fillMaxWidth()
-            .padding(8.dp)
-            .height(56.dp)
+            .padding(bottom = 8.dp)
+            .height(100.dp)
 
     ) {
         items.forEach { item ->
@@ -45,8 +45,8 @@ fun BottomNavBar(navController: NavController, currentRoute: String) {
                 label = { Text(item.label) },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .padding(8.dp)
-                    .height(100.dp),
+                    .padding(bottom = 10.dp)
+
 
                 )
         }
