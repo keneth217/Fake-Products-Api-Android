@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
     implementation(libs.protolite.well.known.types)
     implementation(libs.androidx.compose.material3)
+    implementation(libs.androidx.media3.common.ktx)
     val nav_version = "2.8.6"
     val lifecycle_version = "2.8.7"
     val retrofit_version = "2.9.0"
