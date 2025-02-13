@@ -1,6 +1,6 @@
 package com.keneth.products.Api
 
-import com.keneth.products.data.ProductsItem
+import com.keneth.products.data.Clothes.ProductsItem
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
@@ -26,4 +26,7 @@ object RetrofitInstance {
 interface ApiService {
     @GET("products")
     suspend fun getProducts(): Response<List<ProductsItem>>
+
+
+
 }

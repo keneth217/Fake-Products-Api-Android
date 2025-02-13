@@ -10,11 +10,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
 import androidx.navigation.compose.rememberNavController
 import coil3.compose.rememberAsyncImagePainter
+import coil3.request.ImageRequest
+import coil3.request.crossfade
 import com.keneth.products.model.ProductsViewModel
-import com.keneth.products.data.ProductsItem
+import com.keneth.products.data.Clothes.ProductsItem
 
 
 @Composable
@@ -114,15 +118,21 @@ fun ProductItem(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Image(
-                    painter = rememberAsyncImagePainter(product.image),
+                    painter = rememberAsyncImagePainter(
+                        ImageRequest.Builder(LocalContext.current)
+                            .data(product.image)
+                            .crossfade(true)
+                            .build()
+                    ),
                     contentDescription = product.title,
+                    contentScale = ContentScale.Crop,
                     modifier = Modifier
                         .size(128.dp)
                         .padding(8.dp)
                 )
                 Text(
                     text = product.title,
-                    style = MaterialTheme.typography.bodyLarge,
+                    style = MaterialTheme.typography.bodyLarge, maxLines = 2,
                     modifier = Modifier.padding(4.dp)
                 )
                 Row(modifier = Modifier.padding(top = 8.dp)) {
