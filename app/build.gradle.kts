@@ -50,6 +50,7 @@ dependencies {
     implementation(libs.protolite.well.known.types)
     implementation(libs.androidx.compose.material3)
     implementation(libs.androidx.media3.common.ktx)
+    implementation(libs.androidx.foundation.layout.android)
     val nav_version = "2.8.6"
     val lifecycle_version = "2.8.7"
     val retrofit_version = "2.9.0"
