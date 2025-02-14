@@ -13,33 +13,41 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import coil3.compose.rememberAsyncImagePainter
 import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.keneth.products.model.ProductsViewModel
 import com.keneth.products.data.Clothes.ProductsItem
-
+import kotlinx.coroutines.launch
 
 @Composable
 fun ProductsScreen(
+    navController: NavController,
     modifier: Modifier = Modifier,
     viewState: ProductsViewModel.ProductsState,
     navigateToProductsDetails: (ProductsItem) -> Unit
 ) {
     val scope = rememberCoroutineScope()
     val drawerState = rememberDrawerState(initialValue = DrawerValue.Closed)
-    val navController = rememberNavController()
-    val currentRoute = navController.currentBackStackEntry?.destination?.route ?: "home"
+    val currentRoute = navController.currentBackStackEntry?.destination?.route ?: Screens.ProductsScreen.route
     ModalNavigationDrawer(
         drawerState = drawerState,
-        drawerContent = { ModalDrawerSheet { AppDrawer(drawerState, scope) } }
+        drawerContent = { ModalDrawerSheet { AppDrawer(
+            drawerState,
+            scope,
+            onItemClick = { route ->
+                navController.navigate(route)
+            }
+
+        ) } }
     ) {
         Scaffold(
             topBar = {
-                TopBar(scope, drawerState)
+                TopBar(scope, drawerState, "Products",onBottomSheetOpen = { /* Handle bottom sheet open */ })
             },
-            bottomBar = { BottomNavBar(navController, currentRoute) }
+            bottomBar = { BottomNavBar(navController, currentRoute=Screens.ProductsScreen.route) }
         ) { innerPadding ->
             Box(
                 modifier = modifier
@@ -68,18 +76,6 @@ fun ProductsScreen(
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
 @Composable
 fun ProductList(
     products: List<ProductsItem>,
@@ -97,7 +93,6 @@ fun ProductList(
         }
     }
 }
-
 @Composable
 fun ProductItem(
     product: ProductsItem,
