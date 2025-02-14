@@ -2,13 +2,16 @@ package com.keneth.products.Api
 
 
 
+import com.keneth.products.data.Comments.CommentsResponse
 import com.keneth.products.data.Juice.FruitsResponse
+import com.keneth.products.data.Posts.PostsResponse
+import com.keneth.products.data.Quotes.QuotesResponse
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
 // Singleton Retrofit Instance
-object JuiceRetrofitInstance {
+object DummyJsonRetrofitInstance {
     private const val BASE_URL = "https://dummyjson.com/"
 
     private val retrofit by lazy {
@@ -18,13 +21,24 @@ object JuiceRetrofitInstance {
             .build()
     }
 
-   val juiceResults: JuiceApiService = retrofit.create(JuiceApiService::class.java);
+   val dummyJsonResults: DummyJsonApiService = retrofit.create(DummyJsonApiService::class.java);
 }
 
 // Define API Service Interface
-interface JuiceApiService {
+interface DummyJsonApiService {
     @GET("products")
     suspend fun getProducts(): FruitsResponse
+
+    @GET("quotes")
+    suspend fun getQuotes(): QuotesResponse
+
+    @GET("posts")
+    suspend fun getPosts(): PostsResponse
+
+    @GET("comments")
+    suspend fun  getComments(): CommentsResponse
+
+
 
 
 }
