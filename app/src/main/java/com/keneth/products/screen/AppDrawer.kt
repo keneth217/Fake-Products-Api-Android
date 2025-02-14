@@ -18,8 +18,17 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
 @Composable
-fun AppDrawer(drawerState: DrawerState, scope: CoroutineScope) {
-    val categories = listOf("Electronics", "Jewelry", "Clothing", "Home & Garden")
+fun AppDrawer(
+    drawerState: DrawerState,
+    scope: CoroutineScope,
+    onItemClick: (String) -> Unit // Add click handler
+) {
+    val drawerScreens = listOf(
+        Screens.QuotesScreen,
+        Screens.CommentsScreen,
+        Screens.PostsScreen,
+        Screens.FruitsScreen
+    )
 
     LazyColumn(
         modifier = Modifier
@@ -28,19 +37,16 @@ fun AppDrawer(drawerState: DrawerState, scope: CoroutineScope) {
     ) {
         item {
             Spacer(Modifier.height(12.dp))
-            Text(
-                "Categories",
-                modifier = Modifier.padding(16.dp),
-                style = MaterialTheme.typography.bodyLarge
-            )
+            Text("Categories", Modifier.padding(16.dp), style = MaterialTheme.typography.bodyLarge)
             HorizontalDivider()
         }
-        items(categories) { category ->
+        items(drawerScreens) { screen ->
             NavigationDrawerItem(
-                label = { Text(category) },
+                label = { Text(screen.title!!) },
                 selected = false,
                 onClick = {
                     scope.launch { drawerState.close() }
+                    onItemClick(screen.route)
                 }
             )
         }
