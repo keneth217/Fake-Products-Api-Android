@@ -49,11 +49,13 @@ fun FruitsScreen(
     val currentRoute = navController.currentBackStackEntry?.destination?.route ?: "home"
     ModalNavigationDrawer(
         drawerState = drawerState,
-        drawerContent = { ModalDrawerSheet { AppDrawer(drawerState, scope) } }
+        drawerContent = { ModalDrawerSheet { AppDrawer(
+            drawerState, scope,
+            onItemClick = { route -> navController.navigate(route) }) } }
     ) {
         Scaffold(
             topBar = {
-                TopBar(scope, drawerState)
+                TopBar(scope, drawerState,"Fruits", onBottomSheetOpen = {})
             },
             bottomBar = { BottomNavBar(navController, currentRoute) }
         ) { innerPadding ->
