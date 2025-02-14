@@ -7,9 +7,10 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.media3.common.util.Log
 import androidx.media3.common.util.UnstableApi
-import com.keneth.products.Api.JuiceRetrofitInstance
+import com.keneth.products.Api.DummyJsonRetrofitInstance
+
 import com.keneth.products.data.Juice.FruitsResponse
-import com.keneth.products.data.Juice.JuiceProducts
+
 import kotlinx.coroutines.launch
 
 class JuiceViewModel : ViewModel() {
@@ -25,7 +26,7 @@ class JuiceViewModel : ViewModel() {
         _juiceState.value = _juiceState.value.copy(isLoading = true)
         viewModelScope.launch {
             try {
-                val response = JuiceRetrofitInstance.juiceResults.getProducts()
+                val response = DummyJsonRetrofitInstance.dummyJsonResults.getProducts()
                 if (response.products.isNotEmpty()) {
                     _juiceState.value = _juiceState.value.copy(
                         juiceList = response,
