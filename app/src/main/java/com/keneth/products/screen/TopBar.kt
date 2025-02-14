@@ -2,6 +2,7 @@ package com.keneth.products.screen
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Menu
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -17,9 +18,9 @@ import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun TopBar(scope: CoroutineScope, drawerState: DrawerState) {
+fun TopBar(scope: CoroutineScope, drawerState: DrawerState, title: String, onBottomSheetOpen: () -> Unit) {
     CenterAlignedTopAppBar(
-        title = { Text("Products", maxLines = 1, overflow = TextOverflow.Ellipsis) },
+        title = { Text(title, maxLines = 1, overflow = TextOverflow.Ellipsis) },
         navigationIcon = {
             IconButton(onClick = {
                 scope.launch {
@@ -27,6 +28,11 @@ fun TopBar(scope: CoroutineScope, drawerState: DrawerState) {
                 }
             }) {
                 Icon(imageVector = Icons.Default.Menu, contentDescription = "Menu")
+            }
+        },
+        actions = {
+            IconButton(onClick = onBottomSheetOpen) {
+                Icon(imageVector = Icons.Default.MoreVert, contentDescription = "Open Bottom Modal Sheet")
             }
         },
         colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
