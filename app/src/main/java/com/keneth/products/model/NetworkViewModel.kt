@@ -21,3 +21,6 @@ class NetworkViewModel(private val networkMonitor: NetworkMonitor) : ViewModel()
         _isConnected.value = status
     }
 }
+
+
+
