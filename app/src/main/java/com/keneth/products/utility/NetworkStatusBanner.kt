@@ -20,7 +20,7 @@ fun NetworkStatusBanner(viewModel: NetworkViewModel) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.Black.copy(alpha = 0.7f))
+                .background(Color.Green.copy(alpha = 0.7f))
                 .clickable { },
             contentAlignment = Alignment.Center
         ) {
