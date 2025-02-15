@@ -27,7 +27,7 @@ import com.keneth.products.utility.NetworkStatusBanner
 class MainActivity : ComponentActivity() {
     private lateinit var networkMonitor: NetworkMonitor
     private val viewModel by viewModels<NetworkViewModel> {
-        object : ViewModelProvider.Factory, ViewModelProvider.Factory {
+        object : ViewModelProvider.Factory{
             override fun <T : ViewModel> create(modelClass: Class<T>): T {
                 // Initialize NetworkMonitor first
                 networkMonitor = NetworkMonitor(this@MainActivity)
